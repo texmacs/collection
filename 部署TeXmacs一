@@ -1,0 +1,30 @@
+经过多次权衡，采用ubuntu14.04x64系统搭建环境。
+根据官方GitHub的安装说明可知，需要安装Qt和guile1.8，再下载工程代码，使用cmake构建，并使用make安装。比较难的步骤点有【安装Qt、安装guile和安装cmake】，下面详细说明。
+1.安装Qt
+【Qt:Qt是一个跨平台的C++应用程序开发框架。广泛用于开发GUI程序，这种情况下又被称为部件工具箱。也可用于开发非GUI程序，比如控制台工具和服务器。
+Qt Creator:Qt Creator 是一款跨平台的集成开发环境，特别针对Qt开发者，是Qt SDK组成的一部分，可运行于Windows, Linux/X11及Mac OS X等桌面操作系统，允许开发者为多桌面环境及移动设备平台创建应用程序。它包括一个可视化调试工具和集成的GUI 版面和外形设计师。】
+使用的安装包为qt-opensource-linux-x64-5.11.3.run
+安装命令：
+chmod +x qt.......
+./qt......
+可参考此链接【http://www.cnblogs.com/huicanlin/p/5279089.html】做配置。
+
+2.安装guile
+【Scheme 是一种编程语言，而 Guile（Scheme 解释器和库）将它转换成嵌入式脚本语言，从而很好地将动态性引入到静态应用程序中,它在构建可扩展应用程序方面具有强大的特性。】
+下载了三个guile相关的包，分别为guile-1.8_1.8.8+1-10_amd64.deb、guile-1.8-libs_1.8.8+1-10_amd64.deb和guile-1.8-dev_1.8.8+1-10_amd64.deb；
+目前安装了前两个包，未报错。
+
+3.安装cmake
+【cmake：CMake是个一个开源的跨平台自动化建构系统，用来管理软件建置的程序，并不相依于某特定编译器。并可支持多层目录、多个应用程序与多个库。 它用配置文件控制建构过程的方式和Unix的make相似，只是CMake的配置文件取名为CMakeLists.txt。】
+首先，在ubuntu中，输入命令【sudo apt-get install cmake】，会安装一个低版本的cmake，一般都需要对它升级，方法为：
+sudo apt-get upgrade
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:george-edison55/cmake-3.x
+sudo apt-get update
+
+【疑难杂症：apt-get install xx因依赖包原因不能成功安装的解决办法
+sudo apt-get -f autoremove】
+
+依据需求，对工程Kernel里面的代码进行编译，但失败了，主要原因在于对cmake语法不精通，因此补充这部分知识，相关学习链接如下：
+https://github.com/Akagi201/learning-cmake
+https://github.com/ttroy50/cmake-examples
