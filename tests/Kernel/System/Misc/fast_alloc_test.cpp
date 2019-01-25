@@ -16,11 +16,11 @@
 #include "tm_configure.hpp"
 
 struct Complex { 
-public: 
-double re, im; 
-Complex (double re_, double im_): re (re_), im (im_) {} 
-~Complex () {} 
-}; 
+  public: 
+    double re, im; 
+    Complex (double re_, double im_): re (re_), im (im_) {} 
+    ~Complex () {} 
+};
 
 /******************************************************************************
 * Tests on Common routines for memory. It mainly contains two functions 
@@ -28,12 +28,12 @@ Complex (double re_, double im_): re (re_), im (im_) {}
 ******************************************************************************/
 
 TEST (fast_alloc,time_new=fast_new+new_) {
-	EXPECT_TRUE (tm_new<char> ());
-	EXPECT_TRUE (tm_new<char> ('a'));
-	EXPECT_TRUE (tm_new<Complex> (35.8, 26.2));
-	EXPECT_TRUE (tm_new<int> (1));
-	EXPECT_TRUE (tm_new<short int> (1));
-	EXPECT_TRUE (tm_new<long int> (1));
+  EXPECT_TRUE (tm_new<char> ());
+  EXPECT_TRUE (tm_new<char> ('a'));
+  EXPECT_TRUE (tm_new<Complex> (35.8, 26.2));
+  EXPECT_TRUE (tm_new<int> (1));
+  EXPECT_TRUE (tm_new<short int> (1));
+  EXPECT_TRUE (tm_new<long int> (1));
 }
 
 /******************************************************************************
@@ -41,12 +41,10 @@ TEST (fast_alloc,time_new=fast_new+new_) {
 ******************************************************************************/
 
 TEST (fast_alloc,fast_new) {
-	EXPECT_TRUE (fast_new (sizeof(int)));
-	EXPECT_TRUE (fast_new (sizeof(double)));
-	EXPECT_TRUE (fast_new (sizeof(char)));
-	EXPECT_TRUE (fast_new (sizeof(Complex)));
-	EXPECT_TRUE (fast_new (sizeof(short int)));
-	EXPECT_TRUE (fast_new (sizeof(long int)));
+  EXPECT_TRUE (fast_new (sizeof(int)));
+  EXPECT_TRUE (fast_new (sizeof(double)));
+  EXPECT_TRUE (fast_new (sizeof(char)));
+  EXPECT_TRUE (fast_new (sizeof(Complex)));
+  EXPECT_TRUE (fast_new (sizeof(short int)));
+  EXPECT_TRUE (fast_new (sizeof(long int)));
 }
-
-
